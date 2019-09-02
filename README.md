@@ -79,13 +79,13 @@ Explanation:
 
 The graph looks like this:
 
-0----1
+    0----1
 
-|      |
+    |    |
 
-|      |
+    |    |
 
-3----2
+    3----2
 
 We can divide the vertices into two groups: {0, 2} and {1, 3}.
 
@@ -99,13 +99,13 @@ Explanation:
 
 The graph looks like this:
 
-0----1
+    0----1
 
-| \  |
+    | \  |
 
-|  \ |
+    |  \ |
 
-3----2
+    3----2
 
 We cannot find a way to divide the set of nodes into two independent subsets.
 
