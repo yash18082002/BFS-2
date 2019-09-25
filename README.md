@@ -62,59 +62,27 @@ Note:
 1 <= grid[0].length <= 10
 grid[i][j] is only 0, 1, or 2.
 
-## Problem3 (https://leetcode.com/problems/is-graph-bipartite/)
-Given an undirected graph, return true if and only if it is bipartite.
+## Problem3 : Employee importance (https://leetcode.com/problems/employee-importance/)
 
-Recall that a graph is bipartite if we can split it's set of nodes into two independent subsets A and B such that every edge in the graph has one node in A and another node in B.
+You are given a data structure of employee information, which includes the employee's unique id, his importance value and his direct subordinates' id.
 
-The graph is given in the following form: graph[i] is a list of indexes j for which the edge between nodes i and j exists.  Each node is an integer between 0 and graph.length - 1.  There are no self edges or parallel edges: graph[i] does not contain i, and it doesn't contain any element twice.
+For example, employee 1 is the leader of employee 2, and employee 2 is the leader of employee 3. They have importance value 15, 10 and 5, respectively. Then employee 1 has a data structure like [1, 15, [2]], and employee 2 has [2, 10, [3]], and employee 3 has [3, 5, []]. Note that although employee 3 is also a subordinate of employee 1, the relationship is not direct.
+
+Now given the employee information of a company, and an employee id, you need to return the total importance value of this employee and all his subordinates.
 
 Example 1:
 
-Input: [[1,3], [0,2], [1,3], [0,2]]
+Input: [[1, 5, [2, 3]], [2, 3, []], [3, 3, []]], 1
 
-Output: true
+Output: 11
 
-Explanation: 
-
-The graph looks like this:
-
-    0----1
-
-    |    |
-
-    |    |
-
-    3----2
-
-We can divide the vertices into two groups: {0, 2} and {1, 3}.
-
-Example 2:
-
-Input: [[1,2,3], [0,2], [0,1,3], [0,2]]
-
-Output: false
-
-Explanation: 
-
-The graph looks like this:
-
-    0----1
-
-    | \  |
-
-    |  \ |
-
-    3----2
-
-We cannot find a way to divide the set of nodes into two independent subsets.
+Explanation:
+Employee 1 has importance value 5, and he has two direct subordinates: employee 2 and employee 3. They both have importance value 3. So the total importance value of employee 1 is 5 + 3 + 3 = 11.
+ 
 
 Note:
 
-graph will have length in range [1, 100].
+One employee has at most one direct leader and may have several subordinates.
 
-graph[i] will contain integers in range [0, graph.length - 1].
+The maximum number of employees won't exceed 2000.
 
-graph[i] will not contain i or duplicate values.
-
-The graph is undirected: if any element j is in graph[i], then i will be in graph[j].
